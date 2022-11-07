@@ -1,3 +1,4 @@
+import random
 def make_card(rank,suit):
 
     if rank==11:
@@ -9,23 +10,47 @@ def make_card(rank,suit):
     elif rank==14:
         rank="Ace"
     name=str(rank)+" of "+suit
+
+    SHsuit=suit[0].upper()
+
     try:
-        if rank>1 and rank <=9:
-            SH=" "+str(rank)+suit[0].upper()
+        if rank>1 and rank <=10:
+            SH=" "+str(rank)+SHsuit
 
     except:
-        SH=" "+rank[0]+suit[0].upper()
-    if SH[2]=="D": 
-        print("\033[31m",end="")
-    elif SH[2]=="H":
-        print("\033[31m",end="")
+        SH=" "+rank[0]+SHsuit
+
+    if SHsuit == "D" : 
+        return "\033[31m"+SH
+    elif SHsuit=="H":
+        return  "\033[31m"+SH
     else:
-        print("\033[34m",end="")
-    print(SH,end="")
-    print("\033[37m")    
-make_card(12,"Diamonds")
+       return "\033[34m"+SH
+
+   
+
+def make_deck():
+    l=[]
+    for i in range(4):
+            if i==0:
+                name="Diamonds"
+            elif i==1:
+                name="Clubs"
+            elif i==2:
+                name="Hearts"
+            else:
+                name="Spades"
+            
+            for i in range(2,15):
+                x=make_card(i,name)
+                l.append(x)
+    random.shuffle(l) 
+    tup=tuple(l)  
+    return tup
+        
 
 
+make_deck()
 
 
 
