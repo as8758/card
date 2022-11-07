@@ -15,9 +15,15 @@ def make_card(rank,suit):
 
     except:
         SH=" "+rank[0]+suit[0].upper()
-
-    return SH
-print(make_card(3,"Diamonds"))
+    if SH[2]=="D": 
+        print("\033[31m",end="")
+    elif SH[2]=="H":
+        print("\033[31m",end="")
+    else:
+        print("\033[34m",end="")
+    print(SH,end="")
+    print("\033[37m")    
+make_card(12,"Diamonds")
 
 
 
