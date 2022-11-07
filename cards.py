@@ -1,4 +1,5 @@
 import random
+
 def make_card(rank,suit):
 
     if rank==11:
@@ -44,13 +45,32 @@ def make_deck():
             for i in range(2,15):
                 x=make_card(i,name)
                 l.append(x)
-    random.shuffle(l) 
     tup=tuple(l)  
     return tup
-        
+
+def shuffle(deck):
+    length=52
+    l=list(deck)
+    o=0
+    for i in range(0,length-1):
+            j=random.randint(i,length-1) 
+            a=l[i]
+            b=l[j]
+            l[i]=b
+            l[j]=a
+    return tuple(l)
 
 
-make_deck()
+x=make_deck()
 
 
+s=shuffle(x)
 
+
+'''for i in x:
+    print(i)
+print()
+for i in s:
+    print (i)
+
+'''
