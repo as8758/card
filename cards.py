@@ -1,5 +1,5 @@
 import random
-
+'''Part 1 & 2'''
 def make_card(rank,suit):
 
     if rank==11:
@@ -28,8 +28,8 @@ def make_card(rank,suit):
     else:
        return "\033[34m"+SH
 
-   
 
+'''Part 3'''
 def make_deck():
     l=[]
     for i in range(4):
@@ -48,6 +48,7 @@ def make_deck():
     tup=tuple(l)  
     return tup
 
+'''Part 4'''
 def shuffle(deck):
     length=52
     l=list(deck)
@@ -60,17 +61,22 @@ def shuffle(deck):
             l[j]=a
     return tuple(l)
 
+'''Part 5'''
+def draw(deck,hand=[]):
+    length=len(deck)
+    l=list(deck)
+    if length <= 0:
+        return None
+    else:
+        hand.append(deck[0])
+    print (hand)
+
+
 
 x=make_deck()
 
 
 s=shuffle(x)
+S=tuple()
 
-
-'''for i in x:
-    print(i)
-print()
-for i in s:
-    print (i)
-
-'''
+d=draw(s)
