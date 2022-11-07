@@ -73,10 +73,3 @@ def draw(deck,hand=[]):
 
 
 
-x=make_deck()
-
-
-s=shuffle(x)
-S=tuple()
-
-d=draw(s)
